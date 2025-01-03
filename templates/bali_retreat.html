@@ -193,6 +193,41 @@
 
 <!-- Application Modal -->
 <div class="modal fade" id="applicationModal" tabindex="-1">
-    <!-- Modal content -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Apply for Bali Retreat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/register" method="POST">
+                    <input type="hidden" name="event_type" value="bali_retreat">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="background" class="form-label">Your Background</label>
+                        <select class="form-select" id="background" name="background">
+                            <option value="entrepreneur">Entrepreneur/Business Owner</option>
+                            <option value="trader">Trader/Investor</option>
+                            <option value="creator">Digital Creator</option>
+                            <option value="professional">Professional</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">What are your main goals? (optional)</label>
+                        <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %} 

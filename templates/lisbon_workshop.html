@@ -92,12 +92,31 @@
                 <form action="/register" method="POST">
                     <input type="hidden" name="event_type" value="lisbon_workshop">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Full Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="background" class="form-label">Your Background</label>
+                        <select class="form-select" id="background" name="background">
+                            <option value="entrepreneur">Entrepreneur/Business Owner</option>
+                            <option value="trader">Trader/Investor</option>
+                            <option value="creator">Digital Creator</option>
+                            <option value="professional">Professional</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="experience" class="form-label">Previous meditation experience</label>
+                        <select class="form-select" id="experience" name="experience">
+                            <option value="none">No experience</option>
+                            <option value="beginner">Beginner (0-1 year)</option>
+                            <option value="intermediate">Intermediate (1-3 years)</option>
+                            <option value="advanced">Advanced (3+ years)</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="notes" class="form-label">What are your main goals? (optional)</label>

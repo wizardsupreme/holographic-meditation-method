@@ -37,34 +37,53 @@ holographic-foundation/
 
 
 1. **Clone the repository**
-   git clone \[repository-url\]
+
+   ```bash
+   git clone [repository-url]
    cd holographic-foundation
+   ```
 2. **Create and activate a virtual environment**
 
    # On Windows
 
+   ```bash
    python -m venv venv
-   venv\\Scripts\\activate
+   venv\Scripts\activate
+   ```
 
    # On macOS/Linux
 
+   ```bash
    python3 -m venv venv
    source venv/bin/activate
+   ```
 3. **Install dependencies**
+
+   ```bash
    pip install -r requirements.txt
+   ```
 4. **Set up environment variables**
    * Copy .env.example to .env
    * Update the following variables in .env:
+
+     ```env
      FLASK_SECRET_KEY=your-secret-key-here
      SUPABASE_URL=your-supabase-url
      SUPABASE_KEY=your-supabase-key
+     ```
 5. **Create required directories and files**
+
+   ```bash
    mkdir -p static/images
    mkdir -p static/css
+   ```
 6. **Add required images**
    * Add meditation-bg.jpg to static/images/ directory
 7. **Run the application**
+
+   ```bash
    python app.py
+   ```
 
 The site will be available at http://localhost:5000
 
@@ -73,12 +92,15 @@ The site will be available at http://localhost:5000
 
 1. Create a new Supabase project
 2. Create a 'registrations' table with the following columns:
+
+   ```sql
    * id (int8) - primary key
    * created_at (timestamp with timezone)
    * name (text)
    * email (text)
    * event_type (text)
    * notes (text)
+   ```
 
 ## Deployment
 
@@ -122,5 +144,9 @@ The site will be available at http://localhost:5000
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
+6. Create a feature branch
+7. Commit your changes
+8. Push to the branch
+9. Create a Pull Request
 
 

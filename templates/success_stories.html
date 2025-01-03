@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Success Stories - Holographic Method{% endblock %}
+
+{% block content %}
+<div class="hero-section stories-hero text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Success Stories</h1>
+        <p class="lead">Real results from high performers who transformed their potential</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Featured Story -->
+    <div class="featured-story mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="story-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/trader-success.jpg') }}" alt="Trading Success Story" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="story-content ps-md-4">
+                    <span class="story-category">TRADING</span>
+                    <h2>From Analysis Paralysis to Confident Decision Making</h2>
+                    <p class="lead">"The Holographic Method transformed my trading psychology. I've seen a 300% improvement in my win rate."</p>
+                    <div class="story-metrics">
+                        <div class="metric">
+                            <span class="value">300%</span>
+                            <span class="label">Win Rate Increase</span>
+                        </div>
+                        <div class="metric">
+                            <span class="value">85%</span>
+                            <span class="label">Stress Reduction</span>
+                        </div>
+                    </div>
+                    <p class="story-quote">"I used to struggle with emotional trading. Now I maintain clarity even during high volatility."</p>
+                    <div class="story-author">
+                        <img src="{{ url_for('static', filename='images/alex-profile.jpg') }}" alt="Alex K." class="author-image">
+                        <div class="author-details">
+                            <h4>Alex K.</h4>
+                            <p>Crypto Trader, Singapore</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Categories -->
+    <div class="success-categories py-5">
+        <h2 class="text-center mb-5">Success Across Industries</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="category-card entrepreneurs">
+                    <div class="category-content">
+                        <h3>Entrepreneurs</h3>
+                        <ul class="achievement-list">
+                            <li>40% increase in productive output</li>
+                            <li>Better team leadership</li>
+                            <li>Enhanced decision making</li>
+                        </ul>
+                        <a href="#entrepreneur-stories" class="btn btn-outline-light">Read Stories</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card traders">
+                    <div class="category-content">
+                        <h3>Traders</h3>
+                        <ul class="achievement-list">
+                            <li>Improved market intuition</li>
+                            <li>Better risk management</li>
+                            <li>Emotional stability</li>
+                        </ul>
+                        <a href="#trader-stories" class="btn btn-outline-light">Read Stories</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card creators">
+                    <div class="category-content">
+                        <h3>Creators</h3>
+                        <ul class="achievement-list">
+                            <li>Enhanced creativity flow</li>
+                            <li>Consistent content output</li>
+                            <li>Audience growth</li>
+                        </ul>
+                        <a href="#creator-stories" class="btn btn-outline-light">Read Stories</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Testimonials -->
+    <div class="video-testimonials py-5">
+        <h2 class="text-center mb-5">Video Success Stories</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="video-card">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Coming Soon</span>
+                    </div>
+                    <div class="video-info">
+                        <h4>Startup Success Story</h4>
+                        <p>Sarah L., Tech Founder</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more video cards -->
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section text-center py-5">
+        <h2 class="mb-4">Ready to Write Your Success Story?</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <a href="/apply" class="btn btn-primary btn-lg mb-3">Start Your Journey</a>
+                <p class="text-muted">Limited spots available for upcoming programs</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

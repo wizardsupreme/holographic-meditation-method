@@ -1,0 +1,52 @@
+{
+    "project_name": "Holographic Foundation Website",
+    "description": "A Flask-based website for meditation workshops and retreats using Silva Method",
+    "structure": {
+        "app.py": "Main Flask application file with routes and Supabase integration",
+        "templates/": {
+            "base.html": "Base template with common layout",
+            "home.html": "Homepage with workshop/retreat cards",
+            "lisbon_workshop.html": "Lisbon workshop details page",
+            "bali_retreat.html": "Bali retreat details page"
+        },
+        "static/": {
+            "css/style.css": "Custom styling",
+            "images/": "Directory for website images"
+        }
+    },
+    "tech_stack": {
+        "backend": "Flask",
+        "frontend": "Bootstrap 5",
+        "database": "Supabase",
+        "deployment": "Gunicorn"
+    },
+    "key_features": [
+        "Landing pages for workshops and retreats",
+        "Registration system",
+        "Responsive design",
+        "Flash messages for user feedback"
+    ],
+    "environment_variables": {
+        "FLASK_SECRET_KEY": "Flask session security key",
+        "SUPABASE_URL": "Supabase project URL",
+        "SUPABASE_KEY": "Supabase API key"
+    },
+    "database_schema": {
+        "registrations": {
+            "id": "int8, primary key",
+            "created_at": "timestamp with timezone",
+            "name": "text",
+            "email": "text",
+            "event_type": "text",
+            "notes": "text"
+        }
+    },
+    "context": {
+        "purpose": "Quick deployment for marketing meditation workshops",
+        "target_audience": "People interested in Silva Method meditation",
+        "pricing": {
+            "lisbon_workshop": "€350 per person",
+            "bali_retreat": "€5,000 per person"
+        }
+    }
+}

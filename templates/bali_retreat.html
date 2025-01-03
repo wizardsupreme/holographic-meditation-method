@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Bali Immersion Retreat - Holographic Meditation Method{% endblock %}
+
+{% block body_class %}bg-bali{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="workshop-card mb-4">
+                <div class="workshop-content-header header-gradient-bali">
+                    <div class="workshop-header-content">
+                        <h1>Bali Immersion Retreat</h1>
+                        <p class="workshop-date">April 2024 | Seaside Sanctuary in Nature</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2>Transform Your Performance in Paradise</h2>
+                    <p class="lead">7 days of immersive training in harmony with nature. Connect with the sea, tropical gardens, and sacred spaces designed for deep transformation.</p>
+                    <div class="features-list mt-4">
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Natural sanctuary in paradise</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-water"></i>
+                            <span>Sacred meditation spaces</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sun"></i>
+                            <span>Sunrise and sunset practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overview Section -->
+<section class="overview-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='images/meditation-pavilion.jpg') }}" alt="Meditation Pavilion" class="img-fluid rounded-lg shadow-lg">
+            </div>
+            <div class="col-md-6">
+                <div class="content-wrapper ps-md-5">
+                    <h2>Transform Your Performance in Paradise</h2>
+                    <p class="lead">7 days of immersive training in harmony with nature. Connect with the sea, tropical gardens, and sacred spaces designed for deep transformation.</p>
+                    <div class="features-list mt-4">
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Natural sanctuary in paradise</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-water"></i>
+                            <span>Sacred meditation spaces</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sun"></i>
+                            <span>Sunrise and sunset practices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Grid -->
+<section class="experience-grid py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Your Retreat Experience</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="experience-card">
+                    <img src="{{ url_for('static', filename='images/morning-practice.jpg') }}" alt="Morning Practice">
+                    <div class="card-overlay">
+                        <h3>Morning Practice</h3>
+                        <p>Start your day with energizing meditation and movement practices</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="experience-card">
+                    <img src="{{ url_for('static', filename='images/breakthrough-sessions.jpg') }}" alt="Breakthrough Sessions">
+                    <div class="card-overlay">
+                        <h3>Breakthrough Sessions</h3>
+                        <p>Personal coaching and advanced consciousness techniques</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="experience-card">
+                    <img src="{{ url_for('static', filename='images/evening-integration.jpg') }}" alt="Evening Integration">
+                    <div class="card-overlay">
+                        <h3>Evening Integration</h3>
+                        <p>Deep integration practices and group sharing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Daily Schedule -->
+<section class="schedule-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Your Daily Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time">7:00 AM</div>
+                <div class="content">
+                    <h4>Morning Practice</h4>
+                    <p>Energizing meditation and movement</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">9:30 AM</div>
+                <div class="content">
+                    <h4>Performance Training</h4>
+                    <p>Advanced consciousness techniques</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">2:00 PM</div>
+                <div class="content">
+                    <h4>Integration Sessions</h4>
+                    <p>Personal breakthrough work</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time">5:00 PM</div>
+                <div class="content">
+                    <h4>Evening Practice</h4>
+                    <p>Group integration and sharing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenities -->
+<section class="amenities-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Natural Sanctuary Features</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="amenity-card text-center">
+                    <i class="fas fa-water"></i>
+                    <h4>Sacred Waters</h4>
+                    <p>Natural water features and pools</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="amenity-card text-center">
+                    <i class="fas fa-tree"></i>
+                    <h4>Tropical Gardens</h4>
+                    <p>Meditation paths and quiet spaces</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="amenity-card text-center">
+                    <i class="fas fa-sun"></i>
+                    <h4>Open-Air Pavilions</h4>
+                    <p>Natural light and fresh air</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="amenity-card text-center">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Healing Garden</h4>
+                    <p>Local herbs and flowers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application CTA -->
+<section id="apply" class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Transform?</h2>
+        <p class="lead mb-4">Limited to 12 participants only</p>
+        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#applicationModal">
+            Apply Now
+        </button>
+    </div>
+</section>
+
+<!-- Application Modal -->
+<div class="modal fade" id="applicationModal" tabindex="-1">
+    <!-- Modal content -->
+</div>
+{% endblock %} 

@@ -1,0 +1,819 @@
+:root {
+    --primary-purple: #6B46C1;
+    --secondary-purple: #805AD5;
+    --light-purple: #E9D8FD;
+    --dark-purple: #44337A;
+    --gradient-start: #6B46C1;
+    --gradient-end: #4299E1;
+}
+
+/* Base Font Styles */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+.lead {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.15rem;
+}
+
+.navbar-brand {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/images/sacred-geometry.png') center/cover;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.method-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(107, 70, 193, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(107, 70, 193, 0.2);
+}
+
+.icon-lg {
+    font-size: 2.5rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-left: 4px solid var(--primary-purple);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-purple), var(--secondary-purple));
+}
+
+/* Add animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add responsive image styling */
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-purple);
+    border-color: var(--secondary-purple);
+}
+
+.event-date {
+    color: var(--primary-purple);
+    font-weight: bold;
+}
+
+.navbar-dark {
+    background-color: var(--dark-purple) !important;
+}
+
+.video-section {
+    background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+    color: white;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    padding: 1.5rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #2D3748;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--primary-purple);
+    margin-bottom: 0.2rem;
+}
+
+.testimonial-location {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* Animation classes */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add scroll animation */
+@media (min-width: 768px) {
+    .method-card, .testimonial-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+    }
+
+    .method-card.visible, .testimonial-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add to existing CSS */
+.video-placeholder {
+    background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+    border-radius: 1rem;
+    color: white;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/images/sacred-geometry.png') center/cover;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.placeholder-content {
+    position: relative;
+    z-index: 1;
+}
+
+.features-preview {
+    margin-top: 2rem;
+}
+
+.features-preview i {
+    font-size: 2rem;
+    color: var(--light-purple);
+}
+
+/* Add notification functionality */
+.btn-outline-light:hover {
+    background-color: var(--light-purple);
+    color: var(--dark-purple);
+}
+
+/* Update event card styling */
+.event-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(107, 70, 193, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-purple), var(--gradient-end));
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(107, 70, 193, 0.2);
+}
+
+.event-card .card-body {
+    padding: 2rem;
+}
+
+.event-date {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-purple), var(--gradient-end));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.event-card .card-title {
+    color: var(--dark-purple);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.event-card .list-unstyled li {
+    padding: 0.5rem 0;
+    color: #4A5568;
+    display: flex;
+    align-items: center;
+}
+
+.event-card .list-unstyled li::before {
+    content: '✓';
+    color: var(--primary-purple);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.event-card .btn-primary {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Method Page Styles */
+.method-hero {
+    background: linear-gradient(135deg, var(--primary-purple), var(--gradient-end)),
+                url('/static/images/sacred-geometry.png');
+    background-blend-mode: overlay;
+    padding: 150px 0;
+}
+
+.component-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.component-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(107, 70, 193, 0.2);
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.icon-wrapper i {
+    font-size: 2rem;
+    color: white;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list i {
+    color: var(--primary-purple);
+    margin-right: 1rem;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-purple), var(--gradient-end));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    color: #4A5568;
+    font-size: 1.1rem;
+}
+
+/* Gallery Styles for Bali Retreat */
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.gallery-card img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-card:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* Timeline Component */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-purple), var(--gradient-end));
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Updated Card Designs */
+.retreat-card, .workshop-card {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.event-header {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.event-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-header-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.image-grid-item {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.image-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.content-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-purple);
+    border-radius: 50%;
+    color: var(--primary-purple);
+}
+
+/* Hero Section */
+.retreat-hero {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 20vh;
+}
+
+/* Experience Cards */
+.experience-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.experience-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.experience-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+.audience-card {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(107, 70, 193, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.audience-card .list-unstyled {
+    display: inline-block;
+    text-align: left;
+    margin: 1rem auto;
+}
+
+.audience-card h3 {
+    margin: 1rem 0;
+}
+
+.audience-card .icon-lg {
+    margin-bottom: 1.5rem;
+}
+
+/* Workshop Hero Styles */
+.workshop-hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    position: relative;
+}
+
+.workshop-date {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    background: rgba(107, 70, 193, 0.3);
+}
+
+.workshop-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.workshop-content-header {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.workshop-content-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    border-radius: 1rem 1rem 0 0;
+}
+
+.workshop-content-header h2,
+.workshop-content-header p {
+    position: relative;
+    z-index: 1;
+}
+
+.workshop-header-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.workshop-header-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.workshop-header-content .workshop-date {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0.3rem 1rem;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background: rgba(107, 70, 193, 0.3);
+}
+
+.workshop-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+    margin-top: 0;
+}
+
+.workshop-card .card-body {
+    padding: 2rem;
+    padding-top: 1.2rem;
+}
+
+.workshop-card h2 {
+    color: var(--dark-purple);
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+}
+
+.workshop-card h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+}
+
+.workshop-details, .workshop-schedule {
+    margin-top: 1.5rem;
+}
+
+/* FAQ Styles */
+.faq-item {
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.faq-item h3 {
+    color: var(--dark-purple);
+    font-weight: 600;
+}
+
+.faq-section h2 {
+    color: var(--primary-purple);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.faq-section p {
+    color: #2D3748;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.text-purple {
+    color: var(--primary-purple);
+}
+
+/* FAQ Hero Section */
+.faq-hero {
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.faq-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Page Background Styles */
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.body-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.8));
+    z-index: -1;
+}
+
+/* Background Headers */
+.header-gradient-purple {
+    background-image: linear-gradient(rgba(107, 70, 193, 0.8), rgba(66, 153, 225, 0.8)), url('../images/sacred-geometry.png');
+}
+
+.bg-meditation {
+    background-image: url('../images/meditation-pavilion.jpg');
+}
+
+.bg-lisbon {
+    background-image: url('../images/lisbon-workshop.jpg');
+}
+
+.bg-bali {
+    background-image: url('../images/bali-villa-hero.jpg');
+}
+
+.header-gradient-lisbon {
+    background-image: linear-gradient(rgba(107, 70, 193, 0.8), rgba(66, 153, 225, 0.8)), url('../images/lisbon-workshop.jpg');
+}
+
+.header-gradient-bali {
+    background-image: linear-gradient(rgba(107, 70, 193, 0.8), rgba(66, 153, 225, 0.8)), url('../images/bali-villa-hero.jpg');
+}
+
+.bg-sacred-geometry {
+    background-image: url('../images/sacred-geometry.png');
+} 

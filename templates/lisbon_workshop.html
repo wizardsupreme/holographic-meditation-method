@@ -12,7 +12,7 @@
                 <div class="workshop-content-header header-gradient-lisbon">
                     <div class="workshop-header-content">
                         <h1>Intensive Workshop in Lisbon</h1>
-                        <p class="workshop-date">January 2024 | Central Lisbon</p>
+                        <p class="workshop-date">TBA | CENTRAL LISBON</p>
                     </div>
                 </div>
                 <div class="card-body">
@@ -70,9 +70,8 @@
 
                     <div class="text-center mt-5">
                         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#registerModal">
-                            Register Your Interest
+                            Join Waitlist
                         </button>
-                        <p class="text-muted mt-2">Limited to 20 participants</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +84,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Register for Lisbon Workshop</h5>
+                <h5 class="modal-title">Join Lisbon Workshop Waitlist</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -122,10 +121,20 @@
                         <label for="notes" class="form-label">What are your main goals? (optional)</label>
                         <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Registration</button>
+                    <button type="submit" class="btn btn-primary">Join Waitlist</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
+
+<!-- CTA Button -->
+<div class="text-center mt-4">
+    <a href="{{ url_for('apply') }}" class="btn btn-primary btn-lg">Join Waitlist</a>
+</div>
+
+<!-- Any other apply/register buttons in the page -->
+<div class="cta-section">
+    <button class="btn btn-primary btn-lg">Join Waitlist</button>
 </div>
 {% endblock %} 

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}The Holographic Method - Advanced Performance Training{% endblock %}
+
+{% block content %}
+<div class="hero-section method-hero text-center py-5">
+    <div class="container">
+        <h1 class="display-4">The Holographic Method</h1>
+        <p class="lead">A revolutionary system for peak performance and expanded consciousness</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Method Overview -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <div class="method-card fade-up">
+                <h2>Beyond Traditional Meditation</h2>
+                <p class="lead">The Holographic Method integrates cutting-edge neuroscience with proven consciousness techniques for measurable performance enhancement.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Rapid state access</li>
+                    <li><i class="fas fa-check-circle"></i> Measurable results</li>
+                    <li><i class="fas fa-check-circle"></i> Science-backed approach</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/method-overview.jpg') }}" alt="Method Overview" class="img-fluid rounded shadow-lg">
+        </div>
+    </div>
+
+    <!-- Key Components -->
+    <div class="key-components py-5">
+        <h2 class="text-center mb-5">Key Components</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="component-card text-center fade-up">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>State Mastery</h3>
+                    <p>Access and maintain optimal brain states for enhanced performance and decision-making.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="component-card text-center fade-up">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neural Integration</h3>
+                    <p>Strengthen neural pathways for improved cognitive function and emotional regulation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="component-card text-center fade-up">
+                    <div class="icon-wrapper mb-3">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3>Energy Optimization</h3>
+                    <p>Master energy management for sustained high performance and rapid recovery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Metrics -->
+    <div class="performance-metrics py-5 bg-light rounded">
+        <h2 class="text-center mb-5">Measurable Results</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="metric-card text-center">
+                    <div class="metric-value">300%</div>
+                    <div class="metric-label">Increase in Flow States</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card text-center">
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Stress Reduction</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card text-center">
+                    <div class="metric-value">2.5x</div>
+                    <div class="metric-label">Decision Speed</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card text-center">
+                    <div class="metric-value">94%</div>
+                    <div class="metric-label">Performance Improvement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section text-center py-5">
+        <h2 class="mb-4">Ready to Transform Your Performance?</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <a href="/apply" class="btn btn-primary btn-lg mb-3 w-100">Apply Now</a>
+                <p class="text-muted">Limited spots available for upcoming programs</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

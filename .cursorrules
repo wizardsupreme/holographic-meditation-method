@@ -1,0 +1,117 @@
+# Project Rules and Guidelines
+
+## Project Overview
+- **Name**: Holographic Foundation Website
+- **Description**: A Flask-based website for meditation workshops and retreats using Silva Method
+
+## Project Structure
+- `app.py`: Main Flask application file with routes and Supabase integration
+- `templates/`: 
+  - `base.html`: Base template with common layout
+  - `home.html`: Homepage with workshop/retreat cards
+  - `lisbon_workshop.html`: Lisbon workshop details page
+  - `bali_retreat.html`: Bali retreat details page
+- `static/`:
+  - `css/style.css`: Custom styling
+  - `images/`: Directory for website images
+
+## Tech Stack
+- Backend: Flask
+- Frontend: Bootstrap 5
+- Database: Supabase
+- Deployment: Gunicorn
+
+## Key Features
+- Landing pages for workshops and retreats
+- Registration system
+- Responsive design
+- Flash messages for user feedback
+
+## Environment Variables
+- `FLASK_SECRET_KEY`: Flask session security key
+- `SUPABASE_URL`: Supabase project URL
+- `SUPABASE_KEY`: Supabase API key
+
+## Database Schema
+### registrations
+- id: int8, primary key
+- created_at: timestamp with timezone
+- name: text
+- email: text
+- event_type: text
+- notes: text
+
+## Database Migrations
+### Description
+Rules and guidelines for managing database changes
+
+### Directory Structure
+- `migrations/`: Contains all database migration files
+- `docs/database_structure.md`: Current database structure documentation
+
+### Rules
+1. Never modify existing migration files
+2. Create new migration files for each change with format: NNN_descriptive_name.sql
+3. Each migration should be reversible where possible
+4. Only update documentation files to reflect the final state
+5. Migration files should contain only the delta changes
+6. Keep database_structure.md in sync with the latest state
+
+### File Naming
+- Format: `NNN_descriptive_name.sql`
+- Examples:
+  - `001_create_registrations_table.sql`
+  - `002_update_registration_policies.sql`
+
+### Migration Structure
+- **up**: Changes to apply
+- **down**: How to reverse changes (when possible)
+- **comments**: Clear descriptions of what changes are being made
+
+### Workflow
+1. Create new migration file with next sequential number
+2. Write up and down migrations
+3. Test migration locally
+4. Apply to Supabase using SQL editor
+5. Update database_structure.md to reflect changes
+6. Never modify existing migrations
+
+## Troubleshooting Guide
+### Static Files and Assets
+1. Check CSS class definitions match template usage
+2. Verify file paths in CSS (../images/ vs /static/images/)
+3. Verify static files exist in correct directories
+4. Check browser console for 404 errors on static files
+5. Verify template blocks are properly defined and rendered
+
+### Common Issues and Solutions
+#### Static Files
+- Background images not showing: Check CSS class exists and image path is correct
+- Static files not loading: Verify directory structure and file paths
+- Template blocks not rendering: Ensure block names match between parent and child templates
+- Missing styles: Check CSS class names and hierarchy
+
+#### Database
+- RLS policy errors: Check Supabase policies and user authentication
+- Migration failures: Verify sequential order and no conflicts
+- Connection issues: Verify environment variables and credentials
+
+### Debug Steps
+1. Check browser console for static/JS errors
+2. Verify HTML source for correct paths and classes
+3. Test database queries directly in Supabase console
+4. Check server logs for backend errors
+5. Verify environment variables are loaded
+
+### File Location Conventions
+- Static files: /static/[type]/[file]
+- Templates: /templates/[name].html
+- Migrations: /migrations/[NNN]_[description].sql
+- Scripts: /scripts/[name].py
+
+## Context
+- **Purpose**: Quick deployment for marketing meditation workshops
+- **Target Audience**: People interested in Silva Method meditation
+- **Pricing**:
+  - Lisbon Workshop: €350 per person
+  - Bali Retreat: €5,000 per person

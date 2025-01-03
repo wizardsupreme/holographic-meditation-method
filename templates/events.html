@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Upcoming Events - Holographic Method{% endblock %}
+
+{% block content %}
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="workshop-card mb-4">
+                <div class="workshop-content-header" style="background-image: linear-gradient(rgba(107, 70, 193, 0.8), rgba(66, 153, 225, 0.8)), url('{{ url_for('static', filename='images/sacred-geometry.png') }}');">
+                    <div class="workshop-header-content">
+                        <h1>Upcoming Events</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="event-item mb-4">
+                                <h2>Lisbon Workshop</h2>
+                                <p class="event-date">January 2024</p>
+                                <p class="lead">One-day intensive introduction to the Holographic Method</p>
+                                <a href="/lisbon-workshop" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="event-item">
+                                <h2>Bali Retreat</h2>
+                                <p class="event-date">April 2024</p>
+                                <p class="lead">7-day immersive training in a natural sanctuary</p>
+                                <a href="/bali-retreat" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

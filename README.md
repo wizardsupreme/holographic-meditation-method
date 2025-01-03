@@ -4,21 +4,34 @@ A Flask-based website for the Holographic Foundation, featuring meditation works
 
 ## Project Structure
 
+```
 holographic-foundation/
 ├── static/
 │   ├── css/
 │   │   └── style.css
-│   └── images/
-│       └── meditation-bg.jpg
+│   ├── images/
+│   │   ├── meditation-bg.jpg
+│   │   └── ...
+│   └── favicon/
+│       ├── favicon.ico
+│       └── ...
 ├── templates/
 │   ├── base.html
 │   ├── home.html
 │   ├── lisbon_workshop.html
-│   └── bali_retreat.html
-├── .env
-├── .gitignore
+│   ├── bali_retreat.html
+│   └── confirmation.html
+├── migrations/
+│   ├── 001_create_registrations_table.sql
+│   ├── 002_update_registration_policies.sql
+│   └── 003_fix_registration_policies.sql
+├── scripts/
+│   └── generate_favicon.py
 ├── app.py
-└── requirements.txt
+├── requirements.txt
+├── .env
+└── .gitignore
+```
 
 ## Local Development Setup
 

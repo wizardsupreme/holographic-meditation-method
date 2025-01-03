@@ -5,15 +5,34 @@
 - **Description**: A Flask-based website for meditation workshops and retreats using Silva Method
 
 ## Project Structure
-- `app.py`: Main Flask application file with routes and Supabase integration
-- `templates/`: 
-  - `base.html`: Base template with common layout
-  - `home.html`: Homepage with workshop/retreat cards
-  - `lisbon_workshop.html`: Lisbon workshop details page
-  - `bali_retreat.html`: Bali retreat details page
-- `static/`:
-  - `css/style.css`: Custom styling
-  - `images/`: Directory for website images
+```
+holographic-foundation/
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── images/
+│   │   ├── meditation-bg.jpg
+│   │   └── ...
+│   └── favicon/
+│       ├── favicon.ico
+│       └── ...
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── lisbon_workshop.html
+│   ├── bali_retreat.html
+│   └── confirmation.html
+├── migrations/
+│   ├── 001_create_registrations_table.sql
+│   ├── 002_update_registration_policies.sql
+│   └── 003_fix_registration_policies.sql
+├── scripts/
+│   └── generate_favicon.py
+├── app.py
+├── requirements.txt
+├── .env
+└── .gitignore
+```
 
 ## Tech Stack
 - Backend: Flask

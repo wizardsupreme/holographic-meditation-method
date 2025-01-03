@@ -32,7 +32,7 @@ Stores all application submissions for workshops and retreats.
 
 The registrations table has RLS enabled with the following policies:
 
-* Insert: Allowed for authenticated users
+* Insert: Allowed for anonymous users (public access)
 * Select: Allowed for authenticated users
 
 ## Future Considerations

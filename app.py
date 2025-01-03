@@ -15,6 +15,16 @@ supabase: Client = create_client(
     os.getenv('SUPABASE_KEY')
 )
 
+# Verify Supabase connection at startup
+try:
+    # Test query to verify connection
+    test_query = supabase.table('registrations').select("*").limit(1).execute()
+    print("Supabase connection successful")
+except Exception as e:
+    print("Supabase connection error:", str(e))
+    print("SUPABASE_URL:", os.getenv('SUPABASE_URL'))
+    print("SUPABASE_KEY:", os.getenv('SUPABASE_KEY')[:10] + "...")  # Only print first 10 chars of key
+
 def sanitize_form_data(form_data):
     """Clean and validate form data before storing"""
     allowed_fields = ['name', 'email', 'event_type', 'background', 'experience', 'notes']
@@ -60,14 +70,22 @@ def register():
         # Add timestamp
         data['created_at'] = datetime.utcnow().isoformat()
         
+        print("Attempting to insert data:", data)  # Debug print
+        
         # Store registration in Supabase
-        result = supabase.table('registrations').insert(data).execute()
+        try:
+            result = supabase.table('registrations').insert(data).execute()
+            print("Supabase response:", result)  # Debug print
+        except Exception as supabase_error:
+            print("Supabase error:", str(supabase_error))
+            raise
         
         # Redirect to confirmation page
         return redirect(url_for('confirmation', event_type=data['event_type']))
         
     except Exception as e:
-        print(f"Registration error: {str(e)}")  # For debugging
+        print(f"Registration error: {str(e)}", flush=True)  # For debugging
+        print(f"Error type: {type(e)}", flush=True)
         flash('Registration failed. Please try again.', 'error')
         return redirect(url_for('home'))
 
@@ -100,6 +118,19 @@ def confirmation(event_type):
     return render_template('confirmation.html', 
                          message=event_info['message'],
                          return_url=event_info['return_url'])
+
+@app.route('/test-favicon')
+def test_favicon():
+    return """
+    <html>
+        <head>
+            <link rel="icon" type="image/x-icon" href="/static/favicon/favicon.ico">
+        </head>
+        <body>
+            <h1>Favicon Test Page</h1>
+        </body>
+    </html>
+    """
 
 if __name__ == '__main__':
     app.run(debug=True) 

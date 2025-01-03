@@ -1,13 +1,20 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, make_response
 from supabase_py import create_client, Client # type: ignore
 import os
 from dotenv import load_dotenv # type: ignore
 from datetime import datetime
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY')
+
+# Handle reverse proxy headers
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+# Disable Flask's default static file cache
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # Initialize Supabase client
 supabase: Client = create_client(
@@ -74,10 +81,14 @@ def register():
         
         # Store registration in Supabase
         try:
+            print("Supabase URL:", os.getenv('SUPABASE_URL'))
+            print("Supabase key length:", len(os.getenv('SUPABASE_KEY')))
             result = supabase.table('registrations').insert(data).execute()
             print("Supabase response:", result)  # Debug print
         except Exception as supabase_error:
+            print("Supabase error type:", type(supabase_error))
             print("Supabase error:", str(supabase_error))
+            print("Supabase error details:", getattr(supabase_error, 'details', None))
             raise
         
         # Redirect to confirmation page
@@ -131,6 +142,23 @@ def test_favicon():
         </body>
     </html>
     """
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, 'static', 'favicon'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
+
+@app.after_request
+def add_header(response):
+    """Add headers to disable caching for static files"""
+    if 'Cache-Control' not in response.headers:
+        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+        response.headers['Pragma'] = 'no-cache'
+        response.headers['Expires'] = '0'
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True) 

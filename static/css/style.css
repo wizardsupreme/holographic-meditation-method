@@ -816,4 +816,12 @@ body {
 
 .bg-sacred-geometry {
     background-image: url('../images/sacred-geometry.png');
+}
+
+.bg-home {
+    background-image: url('../images/morning-practice.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 } 

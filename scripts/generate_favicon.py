@@ -7,8 +7,17 @@ def ensure_directory(path):
 
 def create_base_image(size, bg_color="#6B46C1"):
     """Create a base image with infinity symbol"""
-    # Create a new image with a purple background
-    image = Image.new('RGB', (size, size), bg_color)
+    # Create a circular mask
+    mask = Image.new('L', (size, size), 0)
+    draw_mask = ImageDraw.Draw(mask)
+    draw_mask.ellipse((0, 0, size, size), fill=255)
+    
+    # Create the base image with transparency
+    image = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    # Create a circular background
+    bg = Image.new('RGBA', (size, size), bg_color)
+    image.paste(bg, (0, 0), mask)
+    
     draw = ImageDraw.Draw(image)
     
     # Calculate dimensions for the infinity symbol

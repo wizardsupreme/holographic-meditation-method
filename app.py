@@ -61,8 +61,29 @@ def events():
 def resources():
     return render_template('resources.html')
 
-@app.route('/apply')
+@app.route('/apply', methods=['GET', 'POST'])
 def apply():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        # ... other form fields ...
+
+        try:
+            # Update your database insert to include phone
+            data = supabase.table('registrations').insert({
+                'name': name,
+                'email': email,
+                'phone': phone,
+                # ... other fields ...
+            }).execute()
+            
+            flash('Successfully joined the waitlist!', 'success')
+            return redirect(url_for('home'))
+        except Exception as e:
+            flash('An error occurred. Please try again.', 'danger')
+            return redirect(url_for('apply'))
+            
     return render_template('apply.html')
 
 @app.route('/register', methods=['POST'])

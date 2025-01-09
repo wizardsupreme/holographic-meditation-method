@@ -17,50 +17,82 @@
                 <div class="card-body">
                     <p class="lead mb-4">Take the first step towards transforming your performance. Select the program you're interested in and tell us about your goals.</p>
                     
-                    <form action="/register" method="POST">
-                        <div class="mb-4">
-                            <label for="program" class="form-label">Select Program</label>
-                            <select class="form-select" id="program" name="event_type" required>
-                                <option value="">Choose a program...</option>
-                                <option value="lisbon_workshop">Lisbon Workshop (TBA)</option>
-                                <option value="bali_retreat">Bali Retreat (TBA)</option>
-                            </select>
+                    <form method="POST" action="{{ url_for('apply') }}" class="registration-form">
+                        <!-- Program Selection Section -->
+                        <div class="form-section mb-4">
+                            <h4 class="section-title">Program Selection</h4>
+                            <div class="form-field-group">
+                                <label for="program" class="form-label">Select Program *</label>
+                                <select class="form-select" id="program" name="event_type" required>
+                                    <option value="">Choose a program...</option>
+                                    <option value="lisbon_workshop">Lisbon Workshop (TBA)</option>
+                                    <option value="bali_retreat">Bali Retreat (TBA)</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                        <!-- Personal Information Section -->
+                        <div class="form-section mb-4">
+                            <h4 class="section-title">Personal Information</h4>
+                            <div class="form-field-group">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" 
+                                           pattern="[0-9+\s-()]+" 
+                                           title="Please enter a valid phone number"
+                                           required>
+                                    <small class="form-text text-muted">Please include country code (e.g., +351 123456789)</small>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                        <!-- Background Information Section -->
+                        <div class="form-section mb-4">
+                            <h4 class="section-title">Background Information</h4>
+                            <div class="form-field-group">
+                                <div class="mb-4">
+                                    <label for="background" class="form-label">Your Background</label>
+                                    <select class="form-select" id="background" name="background">
+                                        <option value="entrepreneur">Entrepreneur/Business Owner</option>
+                                        <option value="trader">Trader/Investor</option>
+                                        <option value="creator">Digital Creator</option>
+                                        <option value="professional">Professional</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="experience" class="form-label">Previous meditation experience</label>
+                                    <select class="form-select" id="experience" name="experience">
+                                        <option value="none">No experience</option>
+                                        <option value="beginner">Beginner (0-1 year)</option>
+                                        <option value="intermediate">Intermediate (1-3 years)</option>
+                                        <option value="advanced">Advanced (3+ years)</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="background" class="form-label">Your Background</label>
-                            <select class="form-select" id="background" name="background">
-                                <option value="entrepreneur">Entrepreneur/Business Owner</option>
-                                <option value="trader">Trader/Investor</option>
-                                <option value="creator">Digital Creator</option>
-                                <option value="professional">Professional</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="goals" class="form-label">What are your main goals?</label>
-                            <textarea class="form-control" id="goals" name="notes" rows="4" placeholder="Tell us about what you hope to achieve..."></textarea>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="experience" class="form-label">Previous meditation experience</label>
-                            <select class="form-select" id="experience" name="experience">
-                                <option value="none">No experience</option>
-                                <option value="beginner">Beginner (0-1 year)</option>
-                                <option value="intermediate">Intermediate (1-3 years)</option>
-                                <option value="advanced">Advanced (3+ years)</option>
-                            </select>
+                        <!-- Goals Section -->
+                        <div class="form-section mb-4">
+                            <h4 class="section-title">Your Goals</h4>
+                            <div class="form-field-group">
+                                <div class="mb-4">
+                                    <label for="goals" class="form-label">What are your main goals?</label>
+                                    <textarea class="form-control" id="goals" name="notes" rows="4" 
+                                              placeholder="Tell us about what you hope to achieve..."></textarea>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="text-center mt-4">
@@ -72,4 +104,59 @@
         </div>
     </div>
 </div>
+
+<style>
+.form-section {
+    background: linear-gradient(to right, rgba(255,255,255,0.05), rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    color: #a991ff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(169, 145, 255, 0.2);
+}
+
+.form-field-group {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #a991ff;
+    box-shadow: 0 0 0 0.2rem rgba(169, 145, 255, 0.25);
+    color: #fff;
+}
+
+.form-text {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #7b5fff, #a991ff);
+    border: none;
+    padding: 12px 30px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #6a4eff, #9880ff);
+}
+</style>
 {% endblock %} 

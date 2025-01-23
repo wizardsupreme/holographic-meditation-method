@@ -61,8 +61,29 @@ def events():
 def resources():
     return render_template('resources.html')
 
-@app.route('/apply')
+@app.route('/apply', methods=['GET', 'POST'])
 def apply():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        # ... other form fields ...
+
+        try:
+            # Update your database insert to include phone
+            data = supabase.table('registrations').insert({
+                'name': name,
+                'email': email,
+                'phone': phone,
+                # ... other fields ...
+            }).execute()
+            
+            flash('Successfully joined the waitlist!', 'success')
+            return redirect(url_for('home'))
+        except Exception as e:
+            flash('An error occurred. Please try again.', 'danger')
+            return redirect(url_for('apply'))
+            
     return render_template('apply.html')
 
 @app.route('/register', methods=['POST'])
@@ -112,15 +133,15 @@ def about():
 def confirmation(event_type):
     messages = {
         'bali_retreat': {
-            'message': 'Your application for the Bali Immersion Retreat has been received. This exclusive retreat is limited to 12 participants, and we carefully review each application.',
+            'message': 'You have been added to the waitlist for the Bali Immersion Retreat. We will contact you as soon as dates are announced.',
             'return_url': '/bali-retreat'
         },
         'lisbon_workshop': {
-            'message': 'Your application for the Lisbon Workshop has been received. We look forward to potentially welcoming you to this transformative experience.',
+            'message': 'You have been added to the waitlist for the Lisbon Workshop. We will contact you as soon as dates are announced.',
             'return_url': '/lisbon-workshop'
         },
         'general': {
-            'message': 'Your application has been received. We\'ll review your information and contact you about the best program for your goals.',
+            'message': 'You have been added to our waitlist. We will contact you when new dates are announced.',
             'return_url': '/apply'
         }
     }

@@ -13,7 +13,7 @@
                 <div class="workshop-content-header header-gradient-bali">
                     <div class="workshop-header-content">
                         <h1>Bali Immersion Retreat</h1>
-                        <p class="workshop-date">April 2024 | Seaside Sanctuary in Nature</p>
+                        <p class="workshop-date">TBA | Seaside Sanctuary in Nature</p>
                     </div>
                 </div>
                 <div class="card-body">
@@ -184,10 +184,7 @@
 <section id="apply" class="cta-section py-5">
     <div class="container text-center">
         <h2 class="mb-4">Ready to Transform?</h2>
-        <p class="lead mb-4">Limited to 12 participants only</p>
-        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#applicationModal">
-            Apply Now
-        </button>
+        <a href="{{ url_for('apply') }}" class="btn btn-primary btn-lg">Join Waitlist</a>
     </div>
 </section>
 
@@ -196,7 +193,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Apply for Bali Retreat</h5>
+                <h5 class="modal-title">Join Bali Retreat Waitlist</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -224,7 +221,7 @@
                         <label for="notes" class="form-label">What are your main goals? (optional)</label>
                         <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <button type="submit" class="btn btn-primary">Join Waitlist</button>
                 </form>
             </div>
         </div>
